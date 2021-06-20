@@ -20,7 +20,7 @@ public class ShowCommand extends AbstractCommand{
     public boolean execute(String argument, Flat flat, User user){
         try {
             if (!argument.isEmpty())throw new IncorrectValueException();
-            //ResponseCreator.appendln(collectionManager.getStringElements());
+            ResponseCreator.appendln(collectionManager.getStringElements());
         return true;
         }
         catch (IncorrectValueException e) {

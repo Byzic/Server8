@@ -57,8 +57,8 @@ public class CollectionManager {
         synchronized (hashtable){
             String strElem="";
             if (hashtable.isEmpty()) return "Коллекция пуста!!!";
-            for (String str: hashtable.entrySet().stream().map(x->"\u001B[37m"+"\u001B[33m"+"КЛЮЧ:"+x.getKey()+
-                    "\n"+"\u001B[33m"+"\u001B[37m"+x.getValue().toString()+"\n").collect(Collectors.toList())){
+            for (String str: hashtable.entrySet().stream().map(x->"\n"+"КЛЮЧ:"+x.getKey()+
+                    "\n"+x.getValue().toString()+"\n").collect(Collectors.toList())){
                 strElem+=str;
             }
             return strElem;

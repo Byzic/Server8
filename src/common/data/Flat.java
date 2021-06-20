@@ -112,7 +112,7 @@ public class Flat implements Comparable<Flat>, Serializable {
     @Override
     public String toString() {
         String info = "";
-        info += "\u001B[37m"+"\u001B[36m"+"Квартира № " + id+"\u001B[36m"+"\u001B[37m";
+        info += "Квартира № " + id;
         info += " (дата занесения в протокол " + creationDate.toLocalDate() + " " + creationDate.toLocalTime() + ")";
         info += "\n Имя владельца: " + name;
         info += "\n Местоположение: " + coordinates;
