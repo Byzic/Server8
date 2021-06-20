@@ -16,6 +16,8 @@ public class RegisterCommand extends AbstractCommand{
     }
     public boolean execute(String stringArgument, Flat flat, User user) {
         try {
+            //System.out.println(user.getColor());
+            //System.exit(0);
             if (!stringArgument.isEmpty() || flat != null) throw new IncorrectValueException();
             if (databaseUserManager.insertUser(user)) {
                 //App.user_ID.add(databaseUserManager.getUserIdByUsername(user));

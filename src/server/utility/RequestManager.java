@@ -19,7 +19,7 @@ public class RequestManager {
         this.commandManager = commandManager;
     }
     public Response manage(Request request){
-        User hashUser=new User(request.getUser().getLogin(), request.getUser().getPassword());
+        User hashUser=new User(request.getUser().getLogin(), request.getUser().getPassword(),request.getUser().getColor());
         ResponseCode responseCode = executeCommand(request.getCommandName(), request.getArgument(), request.getObjectArgument(), hashUser);
         if (request.getCommandName().equals("show")) return new Response(responseCode, ResponseCreator.getAndClear(), collectionManager.getCollection());
         return new Response(responseCode, ResponseCreator.getAndClear());

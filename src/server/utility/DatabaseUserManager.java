@@ -17,7 +17,8 @@ public class DatabaseUserManager {
     private final String INSERT_USER = "INSERT INTO " +
             DatabaseManager.USER_TABLE + " (" +
             DatabaseManager.USER_TABLE_USERNAME_COLUMN + ", " +
-            DatabaseManager.USER_TABLE_PASSWORD_COLUMN + ") VALUES (?, ?)";
+            DatabaseManager.USER_TABLE_PASSWORD_COLUMN +
+            ", "+ DatabaseManager.USER_TABLE_COLOR_COLUMN + ") VALUES (?, ?, ?)";
     private final String UPDATE_ONLINE_COLUMN="UPDATE "+DatabaseManager.USER_TABLE+" SET "+DatabaseManager.USER_TABLE_ONLINE_COLUMN+" WHERE "+DatabaseManager.USER_TABLE_USERNAME_COLUMN+ " = ? AND "+DatabaseManager.USER_TABLE_PASSWORD_COLUMN+ " = ?";
 
 
@@ -64,7 +65,7 @@ public class DatabaseUserManager {
                     databaseManager.getPreparedStatement(INSERT_USER, false);
             preparedInsertUserStatement.setString(1, user.getLogin());
             preparedInsertUserStatement.setString(2, user.getPassword());
-            //preparedInsertUserStatement.setBoolean(3, true);
+            preparedInsertUserStatement.setString(3, user.getColor());
             if (preparedInsertUserStatement.executeUpdate() == 0) throw new SQLException();
             return true;
         } catch (SQLException exception) {
@@ -106,7 +107,8 @@ public class DatabaseUserManager {
             if (resultSet.next()) {
                 user = new User(
                         resultSet.getString(DatabaseManager.USER_TABLE_USERNAME_COLUMN),
-                        resultSet.getString(DatabaseManager.USER_TABLE_PASSWORD_COLUMN)
+                        resultSet.getString(DatabaseManager.USER_TABLE_PASSWORD_COLUMN),
+                        resultSet.getString(DatabaseManager.USER_TABLE_COLOR_COLUMN)
                 );
             } else throw new SQLException();
         } catch (SQLException exception) {

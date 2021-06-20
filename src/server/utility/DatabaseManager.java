@@ -28,6 +28,7 @@ public class DatabaseManager {
     public static final String USER_TABLE_ID_COLUMN = "id";
     public static final String USER_TABLE_USERNAME_COLUMN = "username";
     public static final String USER_TABLE_PASSWORD_COLUMN = "password";
+    public static final String USER_TABLE_COLOR_COLUMN = "color";
     public static final String USER_TABLE_ONLINE_COLUMN = "online";
     // HOUSE_TABLE column names
     public static final String HOUSE_TABLE_ID_COLUMN = "id";
