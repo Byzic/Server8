@@ -72,7 +72,7 @@ public class CommandManager {
         this.countFurnishCommand = countFurnishCommand;
         commands.add(countFurnishCommand);
         this.filterNameCommand = filterNameCommand;
-        commands.add(filterNameCommand);
+        //commands.add(filterNameCommand);
         this.serverExitCommand=serverExitCommand;
         this.loginCommand=loginCommand;
         this.registerCommand=registerCommand;
@@ -87,7 +87,7 @@ public class CommandManager {
     public boolean help (String argument, Flat flat, User user){
         if (helpCommand.execute(argument,flat,user)) {
             for (AbstractCommand command : commands) {
-                ResponseCreator.appendln(command.getName().toUpperCase()+ ": " + command.getDescription());
+                ResponseCreator.appendln(command.getName().toUpperCase());
             }
             return true;
         } else return false;

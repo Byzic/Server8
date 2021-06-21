@@ -15,7 +15,7 @@ import java.time.LocalDateTime;
 public class InfoCommand extends AbstractCommand {
     private CollectionManager collectionManager;
     public InfoCommand(CollectionManager cm){
-        super("info", "вывести в стандартный поток вывода информацию о коллекции (тип, дата инициализации, количество элементов и т.д.)");
+        super("info", "вывести информацию о коллекции (тип, дата инициализации, количество элементов и т.д.)");
         this.collectionManager=cm;
     }
     /**
@@ -30,13 +30,13 @@ public class InfoCommand extends AbstractCommand {
         try {
             if (!argument.isEmpty())throw new IncorrectValueException();
 
-            ResponseCreator.appendln("Информация о коллекции");
+            ResponseCreator.appendln("informationCollection");
             LocalDateTime lastInitTime = collectionManager.getLastInitTime();
             String lastInitTimeString = (lastInitTime == null) ? "в данной сессии инициализации еще не происходило" :
                     lastInitTime.toLocalDate().toString() + " " + lastInitTime.toLocalTime().toString();
-            ResponseCreator.appendln(" Тип: " + collectionManager.collectionType());
-            ResponseCreator.appendln(" Дата последней инициализации: " + lastInitTimeString);
-            ResponseCreator.appendln(" Количество элементов: " + collectionManager.collectionSize());
+            ResponseCreator.appendln("Type: " + collectionManager.collectionType());
+            ResponseCreator.appendln("DateInit: " + lastInitTimeString);
+            ResponseCreator.appendln("KolvoElem: " + collectionManager.collectionSize());
 
             return true;
 

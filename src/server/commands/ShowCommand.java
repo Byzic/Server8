@@ -13,7 +13,7 @@ import server.utility.ResponseCreator;
 public class ShowCommand extends AbstractCommand{
     private CollectionManager collectionManager;
     public ShowCommand(CollectionManager collectionManager){
-        super("show"," вывести в стандартный поток вывода все элементы коллекции в строковом представлении");
+        super("show","Показать все элемены коллекции");
         this.collectionManager=collectionManager;
     }
     @Override

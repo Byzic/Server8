@@ -27,8 +27,7 @@ public class LoginCommand extends AbstractCommand {
                 }else{
                     //App.user_ID.add(databaseUserManager.getUserIdByUsername(user));
                // databaseUserManager.setOnlineColumn(user);
-                ResponseCreator.appendln("Пользователь " +
-                    user.getLogin() + " авторизован.");}}
+                ResponseCreator.appendln("LoginSuccess");}}
             else throw new UserIsNotFoundException();
             return true;
         } catch (IncorrectValueException exception) {

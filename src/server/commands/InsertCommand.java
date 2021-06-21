@@ -16,7 +16,7 @@ public class InsertCommand extends AbstractCommand {
     private CollectionManager collectionManager;
     private DatabaseCollectionManager databaseCollectionManager;
     public InsertCommand(CollectionManager collectionManager,DatabaseCollectionManager databaseCollectionManager){
-        super("insert null {element}","добавить новый элемент с заданным ключом");
+        super("insert","добавить новый элемент с заданным ключом");
         this.collectionManager=collectionManager;
         this.databaseCollectionManager = databaseCollectionManager;
     }
@@ -35,14 +35,14 @@ public class InsertCommand extends AbstractCommand {
             ResponseCreator.appendln("\u001B[37m"+"\u001B[33m"+"Элемент с заданным ключом успешно добавлен"+"\u001B[33m"+"\u001B[37m");
             return true;}
         catch (EmptyArgumentException e) {
-            ResponseCreator.error("У этой команды должны быть аргументы(Ключ для добавления нового значения и квартира, которую необходимо добавить) " );
+            //ResponseCreator.error("У этой команды должны быть аргументы(Ключ для добавления нового значения и квартира, которую необходимо добавить) " );
         } catch (DatabaseManagerException e) {
-            ResponseCreator.error("Произошла ошибка при обращении к базе данных!");
+            ResponseCreator.appendln("DBExeption");
         }catch (NumberFormatException e){
-            ResponseCreator.error("Формат введенного аргумента неверен. Он должен быть целым....");
+            //ResponseCreator.error("Формат введенного аргумента неверен. Он должен быть целым....");
         }catch(NullPointerException e){
 
-            ResponseCreator.error("Элемент с таким ключом уже существует");
+            ResponseCreator.appendln("ElemAlreadyExist");
         }
         return false;
     }

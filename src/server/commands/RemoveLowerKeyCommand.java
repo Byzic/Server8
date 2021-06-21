@@ -17,7 +17,7 @@ public class RemoveLowerKeyCommand extends AbstractCommand {
     private CollectionManager collectionManager;
     private DatabaseCollectionManager databaseCollectionManager;
     public RemoveLowerKeyCommand(CollectionManager collectionManager, DatabaseCollectionManager databaseCollectionManager){
-        super("remove_lower_key null","удалить из коллекции все элементы, ключ которых меньше, чем заданный");
+        super("remove_lower_key","удалить из коллекции все элементы, ключ которых меньше, чем заданный");
         this.collectionManager=collectionManager;
         this.databaseCollectionManager=databaseCollectionManager;
     }

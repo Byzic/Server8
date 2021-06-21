@@ -18,7 +18,7 @@ public class RemoveKeyCommand extends AbstractCommand {
     CollectionManager collectionManager;
     private DatabaseCollectionManager databaseCollectionManager;
     public RemoveKeyCommand(CollectionManager collectionManager, DatabaseCollectionManager databaseCollectionManager){
-        super("remove_key null","удалить элемент из коллекции по его ключу");
+        super("remove_key","удалить элемент из коллекции по его ключу");
         this.collectionManager=collectionManager;
         this.databaseCollectionManager=databaseCollectionManager;
 

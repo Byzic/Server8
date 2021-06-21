@@ -18,7 +18,7 @@ public class UpdateCommand extends AbstractCommand {
     private CollectionManager collectionManager;
     private DatabaseCollectionManager databaseCollectionManager;
     public UpdateCommand(CollectionManager collectionManager, DatabaseCollectionManager databaseCollectionManager){
-        super("update id {element}","обновить значение элемента коллекции, id которого равен заданному");
+        super("update","обновить значение элемента коллекции, id которого равен заданному");
         this.collectionManager=collectionManager;
         this.databaseCollectionManager=databaseCollectionManager;
     }

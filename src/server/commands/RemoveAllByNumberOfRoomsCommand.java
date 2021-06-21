@@ -20,7 +20,7 @@ public class RemoveAllByNumberOfRoomsCommand extends AbstractCommand {
     private DatabaseCollectionManager databaseCollectionManager;
     public RemoveAllByNumberOfRoomsCommand(CollectionManager collectionManager, DatabaseCollectionManager databaseCollectionManager){
 
-        super("remove_all_by_number_of_rooms numberOfRooms"," удалить из коллекции все элементы, значение поля numberOfRooms которого эквивалентно заданному");
+        super("remove_all_by_number_of_rooms","удалить из коллекции все элементы, значение поля numberOfRooms которого эквивалентно заданному");
         this.collectionManager=collectionManager;
         this.databaseCollectionManager=databaseCollectionManager;
     }

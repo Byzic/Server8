@@ -16,13 +16,11 @@ public class RegisterCommand extends AbstractCommand{
     }
     public boolean execute(String stringArgument, Flat flat, User user) {
         try {
-            //System.out.println(user.getColor());
-            //System.exit(0);
+
             if (!stringArgument.isEmpty() || flat != null) throw new IncorrectValueException();
             if (databaseUserManager.insertUser(user)) {
                 //App.user_ID.add(databaseUserManager.getUserIdByUsername(user));
-                ResponseCreator.appendln("Пользователь " +
-                    user.getLogin() + " зарегистрирован.");}
+                ResponseCreator.appendln("RegisterSuccess");}
             else throw new UserAlreadyExists();
             return true;
         } catch (IncorrectValueException exception) {
@@ -30,9 +28,9 @@ public class RegisterCommand extends AbstractCommand{
         } catch (ClassCastException exception) {
             ResponseCreator.error("Переданный клиентом объект неверен!");
         } catch (DatabaseHandlingException exception) {
-            ResponseCreator.error("Произошла ошибка при обращении к базе данных!");
+            ResponseCreator.appendln("DBExeption");
         } catch (UserAlreadyExists exception) {
-            ResponseCreator.error("Пользователь " + user.getLogin() + " уже существует!");
+            ResponseCreator.appendln("AlreadyExist");
         }
         return false;
     }

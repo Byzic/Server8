@@ -2,6 +2,7 @@ package common;
 
 import common.data.Flat;
 
+
 import java.io.Serializable;
 import java.util.Hashtable;
 
@@ -20,6 +21,22 @@ public class Response implements Serializable {
         this.responseCode = responseCode;
         this.responseBody = responseBody;
     }
+    public String localize() {
+        StringBuilder localizeStringBody = new StringBuilder();
+        String[] lines = responseBody.split("\n");
+        for (String line : lines) {
+            if (line.isEmpty()) continue;
+            if (line.indexOf(":")!=-1){
+                String[] l=line.split(":");System.out.println(l[0]+" "+l[1]);
+                //localizeStringBody.append(LocaleBundle.getCurrentBundle().getString(l[0].trim())+l[1]+"\n");
+
+            }else{
+                //localizeStringBody.append(LocaleBundle.getCurrentBundle().getString(line)+"\n");
+            }
+
+
+        }return localizeStringBody.toString();
+    }
 
     public ResponseCode getResponseCode() {
         return responseCode;
@@ -32,7 +49,5 @@ public class Response implements Serializable {
         return collection;
     }
 }
-
-
 
 

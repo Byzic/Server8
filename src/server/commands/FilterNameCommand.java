@@ -13,7 +13,7 @@ import server.utility.ResponseCreator;
 public class FilterNameCommand extends AbstractCommand {
     CollectionManager collectionManager;
     public FilterNameCommand(CollectionManager collectionManager){
-        super("filter_starts_with_name name","вывести элементы, значение поля name которых начинается с заданной подстроки");
+        super("filter_starts_with_name","вывести элементы, значение поля name которых начинается с заданной подстроки");
         this.collectionManager=collectionManager;
     }
     /**

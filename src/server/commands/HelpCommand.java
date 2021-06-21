@@ -34,7 +34,7 @@ public class HelpCommand extends AbstractCommand {
             return true;
         }
          catch (IncorrectValueException  e) {
-            ResponseCreator.error("У этой команды нет параметров! Необходимо ввести: help");
+
         }
         return false;
     }

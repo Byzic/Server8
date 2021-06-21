@@ -15,7 +15,7 @@ public class ReplaceIfGreaterCommand extends AbstractCommand {
     private CollectionManager collectionManager;
     private DatabaseCollectionManager databaseCollectionManager;
     public ReplaceIfGreaterCommand(CollectionManager collectionManager, DatabaseCollectionManager databaseCollectionManager){
-        super("replace_if_greater null {element}","заменить значение по ключу, если новое значение больше старого");
+        super("replace_if_greater","заменить значение по ключу, если новое значение больше старого");
         this.collectionManager=collectionManager;
         this.databaseCollectionManager=databaseCollectionManager;
     }

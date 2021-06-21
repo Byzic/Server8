@@ -12,7 +12,7 @@ public class ReplaceIfLowerCommand extends AbstractCommand {
     private CollectionManager collectionManager;
     private DatabaseCollectionManager databaseCollectionManager;
     public ReplaceIfLowerCommand(CollectionManager collectionManager, DatabaseCollectionManager databaseCollectionManager){
-        super("replace_if_lower null {element}","заменить значение по ключу, если новое значение меньше старого");
+        super("replace_if_lower","заменить значение по ключу, если новое значение меньше старого");
         this.collectionManager=collectionManager;
         this.databaseCollectionManager=databaseCollectionManager;
 

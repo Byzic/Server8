@@ -53,11 +53,11 @@ public class ClearCommand extends AbstractCommand{
             ResponseCreator.appendln("\u001B[37m"+"\u001B[33m"+"Все элементы, принадлежащие данному пользователю удалены("+count+" элементов)"+"\u001B[33m"+"\u001B[37m");
             return true;
         }catch (IncorrectValueException e) {
-            ResponseCreator.error("У этой команды нет параметров! Необходимо ввести: clear");
+            //ResponseCreator.error("У этой команды нет параметров! Необходимо ввести: clear");
         } catch (DatabaseManagerException e) {
-            ResponseCreator.error("Произошла ошибка при обращении к базе данных!");
+            ResponseCreator.appendln("DBExeption");
         } catch (IllegalDatabaseEditException e) {
-            ResponseCreator.error("Произошло нелегальное изменение объекта в базе данных!");
+            //ResponseCreator.error("Произошло нелегальное изменение объекта в базе данных!");
         }catch(NullPointerException e){
             e.printStackTrace();
         }
