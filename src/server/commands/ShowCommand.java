@@ -24,7 +24,7 @@ public class ShowCommand extends AbstractCommand{
         return true;
         }
         catch (IncorrectValueException e) {
-            ResponseCreator.error("У этой команды нет параметров! Необходимо ввести: show");
+            //ResponseCreator.error("У этой команды нет параметров! Необходимо ввести: show");
         }
         return false;
     }

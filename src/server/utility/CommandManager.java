@@ -35,13 +35,14 @@ public class CommandManager {
     private AbstractCommand serverExitCommand;
     private AbstractCommand loginCommand;
     private AbstractCommand registerCommand;
+    private AbstractCommand getColorCommand;
     private ReadWriteLock collectionLocker = new ReentrantReadWriteLock();
 
 
     public CommandManager(AbstractCommand exitCommand,AbstractCommand helpCommand, AbstractCommand infoCommand, AbstractCommand showCommand, AbstractCommand insertCommand, AbstractCommand updateIdCommand,
                           AbstractCommand removeKeyCommand, AbstractCommand clearCommand, AbstractCommand executeScriptCommand,
                           AbstractCommand replaceIfGreaterCommand, AbstractCommand replaceIfLowerCommand, AbstractCommand removeLowerKeyCommand, AbstractCommand removeAllByNumberOfRoomsCommand,
-                          AbstractCommand countFurnishCommand, AbstractCommand filterNameCommand,AbstractCommand serverExitCommand,AbstractCommand loginCommand,AbstractCommand registerCommand) {
+                          AbstractCommand countFurnishCommand, AbstractCommand filterNameCommand,AbstractCommand serverExitCommand,AbstractCommand loginCommand,AbstractCommand registerCommand,AbstractCommand getColorCommand) {
         this.exitCommand=exitCommand;
         commands.add(exitCommand);
         this.helpCommand = helpCommand;
@@ -76,6 +77,7 @@ public class CommandManager {
         this.serverExitCommand=serverExitCommand;
         this.loginCommand=loginCommand;
         this.registerCommand=registerCommand;
+        this.getColorCommand=getColorCommand;
     }
 
     /**
@@ -234,6 +236,9 @@ public class CommandManager {
     }
     public boolean register(String stringArgument, Flat flat, User user) {
         return registerCommand.execute(stringArgument, flat, user);
+    }
+    public boolean get_user_color(String argument, Flat flat, User user) {
+        return getColorCommand.execute(argument, flat, user);
     }
 
 

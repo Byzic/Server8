@@ -24,9 +24,9 @@ public class RegisterCommand extends AbstractCommand{
             else throw new UserAlreadyExists();
             return true;
         } catch (IncorrectValueException exception) {
-            ResponseCreator.appendln("Эммм...эээ.это внутренняя команда...(Неправильные аргументы)");
+            //ResponseCreator.appendln("Эммм...эээ.это внутренняя команда...(Неправильные аргументы)");
         } catch (ClassCastException exception) {
-            ResponseCreator.error("Переданный клиентом объект неверен!");
+            //ResponseCreator.error("Переданный клиентом объект неверен!");
         } catch (DatabaseHandlingException exception) {
             ResponseCreator.appendln("DBExeption");
         } catch (UserAlreadyExists exception) {

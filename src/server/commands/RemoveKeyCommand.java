@@ -43,18 +43,18 @@ public class RemoveKeyCommand extends AbstractCommand {
             collectionManager.removeKey(key);
             return true;
         }catch (EmptyArgumentException e) {
-            ResponseCreator.error("У этой команды должен быть аргумент(ключ для удаления элемента)" );
+           // ResponseCreator.error("У этой команды должен быть аргумент(ключ для удаления элемента)" );
         }catch (NumberFormatException e){
-            ResponseCreator.error("Формат введенного аргумента неверен. Он должен быть целым.");
+            //ResponseCreator.error("Формат введенного аргумента неверен. Он должен быть целым.");
         }catch (NullPointerException e){
-            ResponseCreator.error("Квартиры с таким ключом не существует");
+            ResponseCreator.appendln("notExist");
         }catch (DatabaseManagerException e) {
-            ResponseCreator.error("Произошла ошибка при обращении к базе данных!");
+            ResponseCreator.appendln("DBExeption");
         }catch (PermissionDeniedException e){
-            ResponseCreator.error("Принадлежащие другим пользователям объекты доступны только для чтения!");
+            ResponseCreator.appendln("anotherUser");
         }catch (IllegalDatabaseEditException exception) {
-            ResponseCreator.error("Произошло нелегальное изменение объекта в базе данных!\n");
-            ResponseCreator.error("Перезапустите клиент для избежания ошибок!\n");
+            //ResponseCreator.error("Произошло нелегальное изменение объекта в базе данных!\n");
+            //ResponseCreator.error("Перезапустите клиент для избежания ошибок!\n");
         }
         return false;
     }

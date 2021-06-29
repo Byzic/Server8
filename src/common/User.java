@@ -12,7 +12,9 @@ public class User implements Serializable {
     public User(String login, String password) {
         this.login = login;
         this.password = password;
-
+    }
+    public void setColor(String color) {
+        this.color = color;
     }
 
     public User(String login, String password,String color) {

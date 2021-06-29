@@ -32,7 +32,7 @@ public class InsertCommand extends AbstractCommand {
             int key =Integer.parseInt(argument);
             collectionManager.Key(key);
             collectionManager.insertNew(key,databaseCollectionManager.insertFlat(flat, user, key));
-            ResponseCreator.appendln("\u001B[37m"+"\u001B[33m"+"Элемент с заданным ключом успешно добавлен"+"\u001B[33m"+"\u001B[37m");
+            ResponseCreator.appendln("Insert");
             return true;}
         catch (EmptyArgumentException e) {
             //ResponseCreator.error("У этой команды должны быть аргументы(Ключ для добавления нового значения и квартира, которую необходимо добавить) " );

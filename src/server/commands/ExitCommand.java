@@ -35,7 +35,7 @@ public class ExitCommand extends AbstractCommand {
                 return true;
             }
             catch (IncorrectValueException  e) {
-                ResponseCreator.error("ExitError");
+                ResponseCreator.appendln("ExitError");
 
             }/*catch(DatabaseHandlingException e){
                 ResponseCreator.error("Возникла проблема с обращением к бд");

@@ -101,6 +101,10 @@ public class RequestManager {
                 if (!commandManager.register(argument, flat, user))
                     return ResponseCode.ERROR;
                 break;
+            case "get_user_color":
+                if (!commandManager.get_user_color(argument, flat, user)) return ResponseCode.ERROR;
+                break;
+
             default:
                 ResponseCreator.appendln("Команда '" + command + "' не найдена. Наберите 'help' для справки.");
                 return ResponseCode.ERROR;

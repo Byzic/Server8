@@ -25,7 +25,7 @@ public class ExecuteScriptCommand extends AbstractCommand {
             return true;
         }catch (
                 EmptyArgumentException e) {
-            ResponseCreator.error("У этой команды должен быть аргумент(имя файла для считывания скрипта)" );
+            //ResponseCreator.error("У этой команды должен быть аргумент(имя файла для считывания скрипта)" );
         }
         return false;
 

@@ -50,7 +50,7 @@ public class ClearCommand extends AbstractCommand{
 
 
 
-            ResponseCreator.appendln("\u001B[37m"+"\u001B[33m"+"Все элементы, принадлежащие данному пользователю удалены("+count+" элементов)"+"\u001B[33m"+"\u001B[37m");
+            ResponseCreator.appendln("clear");
             return true;
         }catch (IncorrectValueException e) {
             //ResponseCreator.error("У этой команды нет параметров! Необходимо ввести: clear");

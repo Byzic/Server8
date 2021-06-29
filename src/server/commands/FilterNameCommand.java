@@ -30,7 +30,7 @@ public class FilterNameCommand extends AbstractCommand {
             return true;
         } catch (
                 EmptyArgumentException e) {
-            ResponseCreator.error("У этой команды должен быть аргумент(строка, с которой будет начинаться name)");
+           // ResponseCreator.error("У этой команды должен быть аргумент(строка, с которой будет начинаться name)");
 
         }
         return false;

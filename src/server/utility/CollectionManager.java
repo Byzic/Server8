@@ -111,12 +111,7 @@ public class CollectionManager {
      */
     public void insertNew(Integer key, Flat flat){
         synchronized (hashtable) {
-            long start= System.nanoTime();
-            long time=0;
 
-            while (time<10){
-                long finish= System.nanoTime();
-                time=(finish-start)/ 1000000000;}
             hashtable.put(key, flat);
         }
 
@@ -146,13 +141,7 @@ public class CollectionManager {
      */
     public void update(Integer key, Flat flat){
         synchronized (hashtable) {
-            long start= System.nanoTime();
-            long time=0;
 
-            while (time<1){
-                long finish= System.nanoTime();
-                time=(finish-start)/ 1000000000;
-            }
             hashtable.remove(key);
             hashtable.put(key, flat);
         }
@@ -169,7 +158,7 @@ public class CollectionManager {
         try{synchronized (hashtable){
             if (!hashtable.containsKey(key)) throw new KeyException();
             hashtable.remove(key);}
-            ResponseCreator.appendln("\u001B[37m"+"\u001B[33m"+"Элемент с ключом "+ key+" успешно удален"+"\u001B[33m"+"\u001B[37m");
+            ResponseCreator.appendln("ElemDelete: "+key);
         }catch (KeyException e){
 
         }
@@ -243,12 +232,12 @@ public class CollectionManager {
         try{synchronized (hashtable){
             if (hashtable.get(key).compareTo(flat)<0) {
                 hashtable.put(key, flat);
-                ResponseCreator.appendln("\u001B[37m" + "\u001B[33m" + "Квартира с ключом " + key + " была успешно заменена" + "\u001B[33m" + "\u001B[37m");
+                ResponseCreator.appendln("ElemReplace: "+key);
                 }
 
             else {throw new СomparisonExeption(); }}
         }catch(NullPointerException e){
-            ResponseCreator.error("Элемента с таким ключом не существует");
+            ResponseCreator.appendln("notExist");
         }
 
 
@@ -309,7 +298,7 @@ public class CollectionManager {
         synchronized (hashtable) {
             if (hashtable.get(key).compareTo(flat) > 0) {
                 hashtable.put(key, flat);
-                ResponseCreator.appendln("\u001B[30m" + "\u001B[33m" + "Квартира с ключом " + key + " была успешно заменена" + "\u001B[33m" + "\u001B[30m");
+                ResponseCreator.appendln("ElemReplace: "+key );
             } else {
                 throw new СomparisonExeption();
             }

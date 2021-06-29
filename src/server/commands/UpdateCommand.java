@@ -41,20 +41,21 @@ public class UpdateCommand extends AbstractCommand {
             databaseCollectionManager.updateFlatByID(id, flat);
             collectionManager.update(key,flat);
 
-            ResponseCreator.appendln("Элемент коллекции с id равным "+argument+" был успешно заменен");
+            ResponseCreator.appendln("Was_Updated: "+argument);
             return true;
         }catch (EmptyArgumentException e) {
-            ResponseCreator.error("У этой команды должен быть аргумент(ключ для удаления элементов)" );
+            //ResponseCreator.error("У этой команды должен быть аргумент(ключ для удаления элементов)" );
         }catch (NumberFormatException e){
-            ResponseCreator.error("Формат введенного аргумента неверен . Он должен быть целым.");
+            //ResponseCreator.error("Формат введенного аргумента неверен . Он должен быть целым.");
         } catch (NullPointerException e){
-            ResponseCreator.error("Элемента с таким id не существует. Невозможно обновить значение несуществующего элемента коллекции");
+            ResponseCreator.error("idNotExist");
         } catch (PermissionDeniedException e) {
-        ResponseCreator.error("Принадлежащие другим пользователям объекты доступны только для чтения!");
+        ResponseCreator.error("anotherUser");
         } catch (DatabaseManagerException e) {
-            ResponseCreator.error("Произошла ошибка при обращении к базе данных!");
+            ResponseCreator.error("DBExeption");
           } catch (IllegalDatabaseEditException e) {
-        ResponseCreator.error("Произошло нелегальное изменение объекта в базе данных!");
-        ResponseCreator.error("Перезапустите клиент для избежания ошибок!");}
+        //ResponseCreator.error("Произошло нелегальное изменение объекта в базе данных!");
+        //ResponseCreator.error("Перезапустите клиент для избежания ошибок!");
+            }
         return false;}
 }

@@ -31,15 +31,15 @@ public class LoginCommand extends AbstractCommand {
             else throw new UserIsNotFoundException();
             return true;
         } catch (IncorrectValueException exception) {
-            ResponseCreator.appendln("Эммм...эээ.это внутренняя команда...(Неправильные аргументы)");
+            //ResponseCreator.appendln("Эммм...эээ.это внутренняя команда...(Неправильные аргументы)");
         } catch (ClassCastException exception) {
-            ResponseCreator.error("Переданный клиентом объект неверен!");
+            //ResponseCreator.error("Переданный клиентом объект неверен!");
         } catch (DatabaseHandlingException exception) {
-            ResponseCreator.error("Произошла ошибка при обращении к базе данных!");
+            ResponseCreator.error("DBExeption");
         } catch (UserIsNotFoundException exception) {
             ResponseCreator.appendln("UserIsNotFoundException");
         }catch (RecurringUserException e){
-            ResponseCreator.error("Данный пользователь уже авторизован.");
+            //ResponseCreator.error("Данный пользователь уже авторизован.");
         }
         return false;
     }

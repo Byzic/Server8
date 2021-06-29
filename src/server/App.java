@@ -34,7 +34,9 @@ public class App {
                 new FilterNameCommand(collectionManager),
                 new ServerExitCommand(),
                 new LoginCommand(databaseUserManager),
-                new RegisterCommand(databaseUserManager));
+                new RegisterCommand(databaseUserManager),
+                new GetUserColorCommand(databaseUserManager));
+
         RequestManager requestManager=new RequestManager(commandManager,collectionManager);
         Serverr server=new Serverr(PORT,requestManager);
         server.run();

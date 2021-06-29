@@ -44,7 +44,7 @@ public class InfoCommand extends AbstractCommand {
         }
         catch (
                 IncorrectValueException e) {
-            ResponseCreator.error("У этой команды нет параметров! Необходимо ввести: info" );
+            //ResponseCreator.error("У этой команды нет параметров! Необходимо ввести: info" );
         }
         return false;
 

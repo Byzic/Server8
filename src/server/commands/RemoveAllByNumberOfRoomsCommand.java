@@ -52,20 +52,21 @@ public class RemoveAllByNumberOfRoomsCommand extends AbstractCommand {
 
                 }
             }
-            ResponseCreator.appendln("\u001B[37m"+"\u001B[33m"+"Было удалено "+count+" квартир с количеством комнат "+numberOfRooms+"\u001B[33m"+"\u001B[37m");
+            ResponseCreator.appendln("Was_Deleted: "+count);
             return true;
         }catch (EmptyArgumentException e) {
-            ResponseCreator.error("У этой команды должен быть аргумент(ключ для удаления элементов)" );
+            //ResponseCreator.error("У этой команды должен быть аргумент(ключ для удаления элементов)" );
         }catch (NumberFormatException e){
 
-            ResponseCreator.error("Формат введенного аргумента неверен. Он должен быть целым.");
+            //ResponseCreator.error("Формат введенного аргумента неверен. Он должен быть целым.");
         }catch (NullPointerException e){
-            ResponseCreator.error("Элемента с таким ключом не существует");
+            ResponseCreator.appendln("notExist");
         } catch (DatabaseManagerException e) {
-            ResponseCreator.error("Произошла ошибка при обращении к базе данных!");
+            ResponseCreator.appendln("DBExeption");
         } catch (IllegalDatabaseEditException e) {
-            ResponseCreator.error("Произошло нелегальное изменение объекта в базе данных!");
-            ResponseCreator.error("Перезапустите клиент для избежания ошибок!");}
+            //ResponseCreator.error("Произошло нелегальное изменение объекта в базе данных!");
+            //ResponseCreator.error("Перезапустите клиент для избежания ошибок!");
+            }
 
         return false;
     }

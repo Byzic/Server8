@@ -2,6 +2,7 @@ package server.utility;
 
 import common.User;
 import exceptions.DatabaseHandlingException;
+import exceptions.DatabaseManagerException;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -20,7 +21,8 @@ public class DatabaseUserManager {
             DatabaseManager.USER_TABLE_PASSWORD_COLUMN +
             ", "+ DatabaseManager.USER_TABLE_COLOR_COLUMN + ") VALUES (?, ?, ?)";
     private final String UPDATE_ONLINE_COLUMN="UPDATE "+DatabaseManager.USER_TABLE+" SET "+DatabaseManager.USER_TABLE_ONLINE_COLUMN+" WHERE "+DatabaseManager.USER_TABLE_USERNAME_COLUMN+ " = ? AND "+DatabaseManager.USER_TABLE_PASSWORD_COLUMN+ " = ?";
-
+    private final String SELECT_COLOR_BY_USERNAME = "SELECT color FROM " + DatabaseManager.USER_TABLE +
+            " WHERE " + DatabaseManager.USER_TABLE_USERNAME_COLUMN + " = ?";
 
 
     private DatabaseManager databaseManager;
@@ -55,6 +57,25 @@ public class DatabaseUserManager {
 
         } finally {
         databaseManager.closePreparedStatement(preparedOnlineColumnStatement);
+        }
+    }
+    public String getColorByUsername(User user) throws DatabaseManagerException {
+        String color;
+        PreparedStatement preparedStatement = null;
+        try {
+            preparedStatement = databaseManager.getPreparedStatement(SELECT_COLOR_BY_USERNAME, false);
+            preparedStatement.setString(1, user.getLogin());
+            ResultSet resultSet = preparedStatement.executeQuery();
+            if (resultSet.next())
+                color = resultSet.getString(DatabaseManager.USER_TABLE_COLOR_COLUMN);
+            else
+                color = null;
+            return color;
+        } catch (SQLException exception) {
+            System.out.println("Произошла ошибка при выполнении запроса SELECT_COLOR_BY_USERNAME");
+            throw new DatabaseManagerException();
+        } finally {
+            databaseManager.closePreparedStatement(preparedStatement);
         }
     }
     public boolean insertUser(User user) throws DatabaseHandlingException {
